@@ -6,19 +6,31 @@ listchar newListe() {
 
 //-----------------------------------------------
 
-void mvNext(listchar *curs);
+void mvNext(listchar *curs) {
+	curs = (*curs)->suiv;
+}
 
 //-----------------------------------------------
 
-void mvPrev(listchar *curs);
+void mvPrev(listchar *curs) {
+	curs = (*curs)->prec;
+}
 
 //-----------------------------------------------
 
-void gotoFirst(listchar *curs);
+void gotoFirst(listchar *curs) {
+	while ((*curs)->prec != NULL) {
+		mvPrev(curs);
+	}
+}
 
 //-----------------------------------------------
 
-void gotoLast(listchar *curs);
+void gotoLast(listchar *curs) {
+	while ((*curs)->suiv != NULL) {
+		mvNext(curs);
+	}
+}
 
 //-----------------------------------------------
 
