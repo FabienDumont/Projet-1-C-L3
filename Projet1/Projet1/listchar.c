@@ -38,7 +38,9 @@ void erase(listchar *curs);
 
 //-----------------------------------------------
 
-bool isEmpty(listchar curs);
+bool isEmpty(listchar curs) {
+	return curs == NULL;
+}
 
 //-----------------------------------------------
 
