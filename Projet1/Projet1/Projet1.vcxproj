@@ -113,6 +113,9 @@
   <ItemGroup>
     <ClInclude Include="listchar.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="listchar.c" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

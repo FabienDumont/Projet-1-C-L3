@@ -29,6 +29,3 @@ void delCurrent(listchar *curs);
 void erase(listchar *curs);
 bool isEmpty(listchar curs);
 void printList(listchar curs);
-
-
-// Commentaire ajouté
