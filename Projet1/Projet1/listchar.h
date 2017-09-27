@@ -1,3 +1,6 @@
+#ifndef DEF_LISTCHAR
+#define DEF_LISTCHAR
+
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -5,7 +8,7 @@
 // Definition des types
 // ================================================
 
-struct cell {
+typedef struct cell {
 	char c;
 	struct cell *suiv;
 	struct cell *prec;
@@ -29,3 +32,5 @@ void delCurrent(listchar *curs);
 void erase(listchar *curs);
 bool isEmpty(listchar curs);
 void printList(listchar curs);
+
+#endif
