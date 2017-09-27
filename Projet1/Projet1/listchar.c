@@ -45,6 +45,3 @@ bool isEmpty(listchar curs) {
 //-----------------------------------------------
 
 void printList(listchar curs);
-
-
-//COMMENTAIRE !!!
