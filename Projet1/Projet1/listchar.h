@@ -8,13 +8,8 @@
 // Definition des types
 // ================================================
 
-typedef struct cell {
-	char c;
-	struct cell *suiv;
-	struct cell *prec;
-};
-
-typedef struct cell * listchar;
+struct cell;
+typedef struct cell *listchar;
 
 
 // ================================================
@@ -26,8 +21,8 @@ void mvNext(listchar *curs);
 void mvPrev(listchar *curs);
 void gotoFirst(listchar *curs);
 void gotoLast(listchar *curs);
-void addCharNext(listchar *curs);
-void addCharPrev(listchar *curs);
+void addCharNext(listchar *curs, char c);
+void addCharPrev(listchar *curs, char c);
 void delCurrent(listchar *curs);
 void erase(listchar *curs);
 bool isEmpty(listchar curs);
