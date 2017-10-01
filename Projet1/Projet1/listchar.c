@@ -17,15 +17,7 @@ listchar newListe() {
 //-----------------------------------------------
 
 void mvNext(listchar *curs) {
-	listchar tmp;
-	tmp = (*curs);
-	if ((*curs)->suiv == NULL) {
-		listchar nxt = NULL;
-		nxt = newListe(nxt);
-		(*curs)->suiv = nxt;
-	}
 	(*curs) = (*curs)->suiv;
-	(*curs)->prec = tmp;
 }
 
 //-----------------------------------------------
@@ -37,7 +29,7 @@ void mvPrev(listchar *curs) {
 //-----------------------------------------------
 
 void gotoFirst(listchar *curs) {
-	if (!isEmpty(curs)) {
+	if ((*curs) != NULL) {
 		while ((*curs)->prec != NULL) {
 			mvPrev(curs);
 		}
@@ -55,15 +47,16 @@ void gotoLast(listchar *curs) {
 //-----------------------------------------------
 
 void addCharNext(listchar *curs, char c) {
-	listchar tmp;
 	if (isEmpty((*curs))) {
-		tmp = (*curs);
 		(*curs)->c = c;
-		mvNext(curs);
-		(*curs)->prec = tmp;
 	}
 	else {
-		(*curs)->c = c;
+		listchar tmp = (*curs)->suiv;
+		listchar nxt = newListe();
+		nxt->prec = (*curs);
+		nxt->suiv = tmp;
+		nxt->c = c;
+		(*curs)->suiv = nxt;
 		mvNext(curs);
 	}
 }
@@ -79,20 +72,33 @@ void delCurrent(listchar *curs);
 //-----------------------------------------------
 
 void erase(listchar *curs) {
-	listchar tmp = (*curs)->suiv;
 	gotoFirst(curs);
+	listchar tmp = (*curs)->suiv;
 	while ((*curs) != NULL) {
 		free((*curs));
 		(*curs) = tmp;
-		if (!isEmpty(tmp))
-			tmp = (*tmp).suiv;
+		if (tmp != NULL)
+			tmp = tmp->suiv;
 	}
 }
 
 //-----------------------------------------------
 
 bool isEmpty(listchar curs) {
-	return curs == NULL;
+	gotoFirst(&curs);
+	if (curs == NULL)
+		return true;
+	else {
+		if (curs->c != NULL)
+			return false;
+		while (curs->suiv != NULL) {
+			if (curs->c != NULL) {
+				return false;
+			}
+			mvNext(&curs);
+		}
+		return true;
+	}
 }
 
 //-----------------------------------------------
