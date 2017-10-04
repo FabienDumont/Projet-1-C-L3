@@ -40,7 +40,4 @@ int main() {
 	erase(&curseur);
 	printList(curseur); //Renvoie une double saut à la ligne car curs est vide
 
-	system("pause");
 }
-
-//Je pense que le newList, addCharNext, mvNext, le printList et le erase sont OK

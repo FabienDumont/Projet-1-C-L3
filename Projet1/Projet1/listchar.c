@@ -1,11 +1,22 @@
 #include "listchar.h"
 
 
+
+// ==========================================
+// Structure de données (cachée)
+// ==========================================
+
 typedef struct cell {
 	char c;
 	struct cell *suiv;
 	struct cell *prec;
 }cell;
+
+
+// ==========================================
+// Liste des fonctions pour ...
+// ==========================================
+
 
 listchar newListe() {
 	return NULL;
@@ -14,7 +25,7 @@ listchar newListe() {
 //-----------------------------------------------
 
 void mvNext(listchar *curs) {
-	if (!isEmpty(*curs)) {
+	if (!isEmpty(*curs) && (*curs)->suiv != NULL) {
 		(*curs) = (*curs)->suiv;
 	}
 }
@@ -22,7 +33,7 @@ void mvNext(listchar *curs) {
 //-----------------------------------------------
 
 void mvPrev(listchar *curs) {
-	if (!isEmpty(*curs)) {
+	if (!isEmpty(*curs) && (*curs)->prec != NULL) {
 		(*curs) = (*curs)->prec;
 	}
 }
