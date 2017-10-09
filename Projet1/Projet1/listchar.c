@@ -1,7 +1,6 @@
 #include "listchar.h"
 
 
-
 // ==========================================
 // Structure de données (cachée)
 // ==========================================
@@ -14,7 +13,7 @@ typedef struct cell {
 
 
 // ==========================================
-// Liste des fonctions pour ...
+// Liste des fonctions
 // ==========================================
 
 
@@ -22,7 +21,7 @@ listchar newListe() {
 	return NULL;
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void mvNext(listchar *curs) {
 	if (!isEmpty(*curs) && (*curs)->suiv != NULL) {
@@ -30,7 +29,7 @@ void mvNext(listchar *curs) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void mvPrev(listchar *curs) {
 	if (!isEmpty(*curs) && (*curs)->prec != NULL) {
@@ -38,7 +37,7 @@ void mvPrev(listchar *curs) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void gotoFirst(listchar *curs) {
 	if (!isEmpty(*curs)) {
@@ -48,7 +47,7 @@ void gotoFirst(listchar *curs) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void gotoLast(listchar *curs) {
 	if (!isEmpty(*curs)) {
@@ -58,7 +57,7 @@ void gotoLast(listchar *curs) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void addCharNext(listchar *curs, char c) {
 	//On creer une cellule
@@ -86,7 +85,7 @@ void addCharNext(listchar *curs, char c) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void addCharPrev(listchar *curs, char c) {
 	//On creer une cellule
@@ -114,7 +113,7 @@ void addCharPrev(listchar *curs, char c) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void delCurrent(listchar *curs) {
 	cell * tmp = *curs;
@@ -144,7 +143,7 @@ void delCurrent(listchar *curs) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void erase(listchar *curs) {
 	if (!isEmpty(*curs)) {
@@ -154,24 +153,30 @@ void erase(listchar *curs) {
 	}
 }
 
-//-----------------------------------------------
+// ==========================================
 
 bool isEmpty(listchar curs) {
 	return curs == NULL;
 }
 
-//-----------------------------------------------
+// ==========================================
 
 void printList(listchar curs) {
+	listchar curseur = curs;
+	
 	if (!isEmpty(curs)) {
 		gotoFirst(&curs);
 		while (curs != NULL) {
 			printf("%c", (*curs).c);
+			
+			if (curs == curseur) {
+				printf("_");
+			}
+			
 			curs = (*curs).suiv;
+	
 		}
-		printf("\n\n");
+		printf("\n");
 	}
-	else {
-		printf("\n\n");
-	}
+
 }

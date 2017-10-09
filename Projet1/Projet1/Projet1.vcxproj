@@ -114,6 +114,7 @@
     <ClInclude Include="listchar.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="editor.c" />
     <ClCompile Include="listchar.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
