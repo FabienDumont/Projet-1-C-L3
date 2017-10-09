@@ -167,10 +167,12 @@ void printList(listchar curs) {
 	if (!isEmpty(curs)) {
 		gotoFirst(&curs);
 		while (curs != NULL) {
-			printf("%c", (*curs).c);
+			char c = (*curs).c;
+			printf("%c", c);
+			if(c == '\n') printf("%c", 13);
 			
 			if (curs == curseur) {
-				printf("_");
+				printf("|");
 			}
 			
 			curs = (*curs).suiv;
